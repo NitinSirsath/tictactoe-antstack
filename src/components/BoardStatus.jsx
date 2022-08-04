@@ -10,6 +10,7 @@ const BoardStatus = ({status ,restart,winner}) => {
         <div >
     <button className={style.restart_btn} onClick={restart}>{winner? 'Restart the game' : 'Clear the game'}</button> 
         </div>
+    
     </div>
   )
 }

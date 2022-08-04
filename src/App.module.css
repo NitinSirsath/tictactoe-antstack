@@ -1,5 +1,5 @@
 .app{
-    margin: 20px;
+    /* margin: 20px; */
     display: flex;
     justify-content: center;
     max-height: 100vh;
@@ -13,6 +13,6 @@
     .app {
       display: grid;
       place-items: center;
-     
+     min-height: 70vh;
     }
   }

@@ -1,3 +1,4 @@
 .board_wrapper{
     display: flex;
+    width: inherit;
 }
