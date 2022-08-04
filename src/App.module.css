@@ -1,0 +1,10 @@
+.app{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+.heading{
+    text-align: center;
+}

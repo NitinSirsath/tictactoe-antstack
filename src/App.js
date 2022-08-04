@@ -1,11 +1,14 @@
 
-import './App.css';
+import style from './App.module.css';
 import Board from './components/Board';
 
 function App() {
   return (
-    <div className="App">
+    <div >
+        <h1 className={style.heading}>TIC TAC TOE</h1>
+      <div className={style.app}>
       <Board />
+      </div>
     </div>
   );
 }
