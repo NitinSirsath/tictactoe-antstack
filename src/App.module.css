@@ -8,3 +8,11 @@
 .heading{
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .app {
+      display: grid;
+      place-items: center;
+     
+    }
+  }
