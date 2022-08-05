@@ -2,3 +2,8 @@
     display: flex;
     width: inherit;
 }
+
+.board_container{
+    display:  flex;
+    gap: 20px;
+}

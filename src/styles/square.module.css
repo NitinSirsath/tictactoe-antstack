@@ -3,4 +3,13 @@
     width: 60px;
     font-weight: bolder;
     font-size: large;
+    color: red;
+}
+
+.X_color{
+    color: red;
+}
+
+.Y_color{
+    color: blue;
 }

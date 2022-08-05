@@ -58,11 +58,13 @@ const Board = () => {
          
         }
 
-
-  return (
-    <div>
         
-        <div className={style.board_wrapper}>
+        return (
+            <div className={style.board_container}>
+        <BoardStatus winner={winner} restart={handleRestart}  status={status}/>
+<div>
+            
+<div className={style.board_wrapper}>
         <Square value={squares[0]} onClick={() => handleClick(0)}/>
         <Square value={squares[1]} onClick={() => handleClick(1)}/>
         <Square value={squares[2]} onClick={() => handleClick(2)}/>
@@ -77,7 +79,7 @@ const Board = () => {
         <Square value={squares[7]} onClick={() => handleClick(7)}/>
         <Square value={squares[8]} onClick={() => handleClick(8)}/>
         </div>
-        <BoardStatus winner={winner} restart={handleRestart}  status={status}/>
+</div>
     </div>
   )
 }
