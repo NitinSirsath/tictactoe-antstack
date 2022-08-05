@@ -1,19 +1,37 @@
-.square_btn{
-    height: 50px;
-    width: 60px;
-    font-weight: bolder;
-    font-size: large;
-    color: red;
-    margin: 2px;
- border: none;
+.X_color {
+  color: red;
 }
 
-
-
-.X_color{
-    color: red;
+.Y_color {
+  color: blue;
 }
 
-.Y_color{
-    color: blue;
+.square_btn {
+  height: 100px;
+  width: 100px;
+  font-weight: bolder;
+  font-size: 40px;
+  /* color: red; */
+  
+  /* margin: 2px; */
+  background-color: white;
+  border: 2px solid rgb(197, 52, 202);
+}
+
+.square_btn:first-child,
+.square_btn:nth-child(2),
+.square_btn:nth-child(3) {
+  border-top: none;
+}
+.square_btn:last-child,
+.square_btn:nth-child(7),
+.square_btn:nth-child(8) {
+  border-bottom: none;
+}
+
+.square_btn:nth-child(3n + 1) {
+  border-left: none;
+}
+.square_btn:nth-child(3n + 3) {
+  border-right: none;
 }

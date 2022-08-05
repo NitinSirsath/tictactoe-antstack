@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Square from "./Square";
 import style from "../styles/board.module.css";
 import BoardStatus from "./BoardStatus";
@@ -9,7 +9,7 @@ const Board = () => {
   const [isX, setIsX] = useState(true);
   const [playerScoreX, setPlayerScoreX] = useState(0);
   const [playerScoreO, setPlayerScoreO] = useState(0);
-  const [tieScore, setTieScore] = useState(0)
+  const [tieScore, setTieScore] = useState(0);
 
   function calculateWinner(squares) {
     const lines = [
@@ -34,8 +34,6 @@ const Board = () => {
     }
     return null;
   }
-  
- 
 
   const handleClick = (i) => {
     if (calculateWinner(squares) || squares[i]) {
@@ -66,56 +64,71 @@ const Board = () => {
   } else {
     status = `Next Player : ${isX ? "X" : "O"}`;
   }
-  
+
+  const checkTie = squares.every((element) => element !== null);
+  const changeScoreBoardStatus = useCallback(
+    (winner, checkTie) => {
+      if (winner === "X") {
+        setPlayerScoreX((preV) => preV + 1);
+      }
+      if (winner === "O") {
+        setPlayerScoreO((preV) => preV + 1);
+      }
+
+      if (checkTie) {
+        setTieScore((preV) => preV + 1);
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    changeScoreBoardStatus(winner, checkTie);
+  }, [changeScoreBoardStatus,winner, checkTie]);
 
   const handleRestart = () => {
     setIsX(true);
     setSquares(Array(9).fill(null));
-    if (winner === "X") {
-      setPlayerScoreX((preV) => preV + 1);
-      console.log(playerScoreX);
-    } 
-    if(winner === "O"){
-        setPlayerScoreO((preV) => preV + 1);
-        console.log(playerScoreO);
-    }
-    const found = squares.every(element => element !== null);
-    if(found){
-        setTieScore(preV => preV + 1)
-        console.log(tieScore);
-    }
-    
   };
 
   return (
     <div>
       <div className={style.board_container}>
-        <BoardStatus winner={winner} restart={handleRestart} status={status} />
+        <BoardStatus
+          winner={winner}
+          restart={handleRestart}
+          checkTie={checkTie}
+          status={status}
+        />
 
         <div className={style.board_squares}>
-          <div className={style.board_wrapper}>
-            <Square
-              border={'b_botton_right'}
-              value={squares[0]}
-              onClick={() => handleClick(0)}
-            />
-            <Square value={squares[1]} onClick={() => handleClick(1)} />
-            <Square value={squares[2]} onClick={() => handleClick(2)} />
-          </div>
-          <div className={style.board_wrapper}>
-            <Square value={squares[3]} onClick={() => handleClick(3)} />
-            <Square value={squares[4]} onClick={() => handleClick(4)} />
-            <Square value={squares[5]} onClick={() => handleClick(5)} />
-          </div>
-          <div className={style.board_wrapper}>
-            <Square value={squares[6]} onClick={() => handleClick(6)} />
-            <Square value={squares[7]} onClick={() => handleClick(7)} />
-            <Square value={squares[8]} onClick={() => handleClick(8)} />
-          </div>
+          {/* <div className={style.board_wrapper}> */}
+          <Square
+            border={style.b_botton_right}
+            value={squares[0]}
+            onClick={() => handleClick(0)}
+          />
+          <Square value={squares[1]} onClick={() => handleClick(1)} />
+          <Square value={squares[2]} onClick={() => handleClick(2)} />
+          {/* </div> */}
+          {/* <div className={style.board_wrapper}> */}
+          <Square value={squares[3]} onClick={() => handleClick(3)} />
+          <Square value={squares[4]} onClick={() => handleClick(4)} />
+          <Square value={squares[5]} onClick={() => handleClick(5)} />
+          {/* </div> */}
+          {/* <div className={style.board_wrapper}> */}
+          <Square value={squares[6]} onClick={() => handleClick(6)} />
+          <Square value={squares[7]} onClick={() => handleClick(7)} />
+          <Square value={squares[8]} onClick={() => handleClick(8)} />
+          {/* </div> */}
         </div>
       </div>
       <div>
-        <Score playerScoreO={playerScoreO} tieScore={tieScore} playerScoreX={playerScoreX} />
+        <Score
+          playerScoreO={playerScoreO}
+          tieScore={tieScore}
+          playerScoreX={playerScoreX}
+        />
       </div>
     </div>
   );
