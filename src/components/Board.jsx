@@ -7,7 +7,7 @@ const Board = () => {
 
     const [squares, setSquares] = useState(Array(9).fill(null))
     const [isX, setIsX] = useState(true)
-    const [warn, setWarn] = useState(false)
+    
 
     function calculateWinner(squares) {
         const lines = [
