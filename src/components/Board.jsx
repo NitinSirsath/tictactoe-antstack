@@ -77,7 +77,7 @@ const Board = () => {
         <Square value={squares[7]} onClick={() => handleClick(7)}/>
         <Square value={squares[8]} onClick={() => handleClick(8)}/>
         </div>
-        <BoardStatus winner={winner} warn={warn} restart={handleRestart}  status={status}/>
+        <BoardStatus winner={winner} restart={handleRestart}  status={status}/>
     </div>
   )
 }
