@@ -28,9 +28,17 @@
 .winner_bg{
     background-color: rgb(81, 197, 55); 
 }
+.winner_bg:hover{
+    background-color: rgb(67, 160, 46); 
+}
 
 .clear_bg{
     background-color: #fb3445;
+}
+
+.clear_bg:hover{
+    background-color: #e42a39;
+
 }
 
 /* .restart_btn:hover{
