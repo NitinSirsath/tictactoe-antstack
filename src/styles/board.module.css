@@ -7,3 +7,22 @@
     display:  flex;
     gap: 20px;
 }
+
+.board_squares{
+    /* display: grid;
+    grid: 85px 85px 85px / 85px 85px 85px;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+  
+    width: calc(3* 85px + 2 * 5px);
+    height: calc(3* 85px + 2 * 5px); */
+}
+
+.b_bottom_right{
+    border-bottom: 1px solid rgb(167, 163, 163);
+    border-right: 1px solid rgb(167, 163, 163);
+}
+
+.b_bottom_right_end{
+    border-bottom: 1px solid rgb(167, 163, 163);
+}

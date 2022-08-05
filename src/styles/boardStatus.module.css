@@ -8,14 +8,14 @@
 .status_wrapper{
     padding-bottom: 5px;
     font-weight: 600;
-    font-family:  'Courier New', Courier, monospace;
+    /* font-family:  'Courier New', Courier, monospace; */
     font-size: larger;
     /* width: 200px; */
 }
 
 .restart_btn{
     padding: 8px 16px;
-    background-color: rgb(109, 111, 115);
+    
     color: white;
     font-weight: 500;
     font-size: medium;
@@ -25,6 +25,14 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.restart_btn:hover{
-    background-color: grey;
+.winner_bg{
+    background-color: rgb(81, 197, 55); 
 }
+
+.clear_bg{
+    background-color: #fb3445;
+}
+
+/* .restart_btn:hover{
+    background-color: rgb(232, 10, 10);
+} */

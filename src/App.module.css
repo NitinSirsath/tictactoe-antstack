@@ -2,18 +2,20 @@
     /* margin: 20px; */
     display: flex;
     justify-content: center;
-    max-height: 100vh;
+    align-items: center;
+    min-height: 60vh;
 }
 
 .heading{
     text-align: center;
     font-size: 3rem;
+    color: rgb(11, 114, 218);
 }
 
 @media only screen and (max-width: 600px) {
     .app {
       display: grid;
       place-items: center;
-     min-height: 70vh;
+     min-height: 70vh;  
     }
   }

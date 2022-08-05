@@ -2,11 +2,14 @@ import React , {useState} from 'react'
 import Square from './Square'
 import style from '../styles/board.module.css'
 import BoardStatus from './BoardStatus'
+import Score from './Score'
 
 const Board = () => {
 
     const [squares, setSquares] = useState(Array(9).fill(null))
     const [isX, setIsX] = useState(true)
+    const [playerScoreX, setPlayerScoreX] = useState(0)
+    const [playerScoreO, setPlayerScoreO] = useState(0)
     
 
     function calculateWinner(squares) {
@@ -32,7 +35,7 @@ const Board = () => {
     
 
     const handleClick = i => {
-        console.log(squares[i]);
+       
         if(calculateWinner(squares) || squares[i]){
             return      
         }
@@ -43,6 +46,11 @@ const Board = () => {
 
         let winner = calculateWinner(squares)
         let status 
+        if(winner === 'X') {
+        
+           console.log(playerScoreX, 'winner');
+        }
+       
         if(winner){
             status = `Winner : ${winner}`
         }
@@ -62,10 +70,11 @@ const Board = () => {
         return (
             <div className={style.board_container}>
         <BoardStatus winner={winner} restart={handleRestart}  status={status}/>
-<div>
+        {/* <Score playerScoreO={playerScoreO} playerScoreX={playerScoreX}/> */}
+<div className={style.board_squares}>
             
 <div className={style.board_wrapper}>
-        <Square value={squares[0]} onClick={() => handleClick(0)}/>
+        <Square border={style.b_botton_right} value={squares[0]} onClick={() => handleClick(0)}/>
         <Square value={squares[1]} onClick={() => handleClick(1)}/>
         <Square value={squares[2]} onClick={() => handleClick(2)}/>
         </div>
